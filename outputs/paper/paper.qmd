@@ -1,0 +1,87 @@
+---
+title: "My title"
+subtitle: "My subtitle if needed"
+author: 
+  - First author
+  - Another author
+thanks: "Code and data are available at: LINK."
+date: "`r Sys.time()`"
+date-format: "D MMMM YYYY"
+abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+format: pdf
+number-sections: true
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+#### Preamble ####
+# Purpose: Downloads and saves the data from NASA [...UPDATE THIS...]
+# Author: Rohan Alexander [...UPDATE THIS...]
+# Data: 11 February 2023 [...UPDATE THIS...]
+# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# License: MIT
+# Pre-requisites: [...UPDATE THIS...]
+# Any other information needed? [...UPDATE THIS...]
+
+
+#### Workspace setup ####
+library(httr)
+library(tidyverse)
+library(xml2)
+# [...UPDATE THIS...]
+
+#### Download data ####
+# [...ADD CODE HERE TO DOWNLOAD...]
+
+
+NASA_APOD_20230216 <-
+  GET("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2023-02-16")
+
+content(NASA_APOD_20230216) $url %>%
+  download.file(destfile = "inputs/NASA_APOD_20230216.jpg")
+
+
+#### Save data ####
+# [...UPDATE THIS...]
+# change the_raw_data to whatever name you assigned when you downloaded it.
+
+         
+```
+
+
+
+# Results
+
+# Discussion
+
+## First discussion point {#sec-first-point}
+
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+
+## Second discussion point
+
+## Third discussion point
+
+## Weaknesses and next steps
+
+Weaknesses and next steps should also be included.
+
+\newpage
+
+\appendix
+
+# Appendix {-}
+
+
+# Additional details
+
+
+\newpage
+
+
+# References
+
+
